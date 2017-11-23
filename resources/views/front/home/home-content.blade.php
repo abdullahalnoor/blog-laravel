@@ -19,7 +19,7 @@
               <p class="card-text">
                 {{ $post->body }}
               </p>
-              <a href="#" class="btn btn-primary">Read More &rarr;</a>
+              <a href="{{ url('blog/'.$post->slug ) }}" class="btn btn-primary">Read More &rarr;</a>
             </div>
             <div class="card-footer text-muted">
               {{ $post->updated_at->diffForHumans()}}

@@ -16,6 +16,8 @@
 // // });
 
 route::group(['namespace'=>'Front','middleware'=>['web']],function(){
+	Route::get('blog/{slug}',['as'=>'single','uses'=>'BlogController@getSinglePost']);
+	// ->where('slug','[w\d\-\_]+')
 	route::get('/','HomeController@index');
 	route::get('/about','HomeController@about');
 	route::get('/contact','HomeController@contact');
