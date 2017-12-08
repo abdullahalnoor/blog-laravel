@@ -3,8 +3,8 @@
 @section('title','|| Post')
 
 
+<link rel="stylesheet" type="text/css" href="{{ asset('dist/css/select2.css') }}">
 
-{!! Html::style('parsley.parsley.css') !!}
 
 @section('body')
 <div class="row">
@@ -25,6 +25,22 @@
            <div class="form-group">
             {{ Form::label('slug','Slug :') }}
              {{ Form::text('slug',null,['class'=>'form-control','required'=>'']) }}
+           </div>
+           <div class="form-group">
+             {{ Form::label('category_id','Category') }}
+             <select name="category_id" class="form-control">
+               @foreach($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+               @endforeach
+             </select>
+           </div>
+           <div class="form-group">
+             {{ Form::label('tag','Tags :') }}
+             <select class="form-control select_two" name="tags[]" multiple="multiple">
+             @foreach($tags as $tag)
+              <option value="{{ $tag->id }}">{{ $tag->name}}</option>
+             @endforeach
+             </select>
            </div>
             <div class="form-group">
               {{ Form::label('body','Description :') }}
@@ -105,5 +121,10 @@
       </div>
       <!-- /.row -->
 
-      {!! Html::script('parsley.parsley.min.js') !!}
+      <script type="text/javascript" src="{{ asset('front/vendor/jquery/jquery.js') }}"></script>
+      <script type="text/javascript" src="{{ asset('dist/js/select2.js') }}"></script>
+      <script type="text/javascript">
+          $('.select_two').select2();
+         
+      </script>
 @endsection

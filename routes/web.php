@@ -21,8 +21,11 @@ route::group(['namespace'=>'Front','middleware'=>['web']],function(){
 	route::get('/','HomeController@index');
 	route::get('/about','HomeController@about');
 	route::get('/contact','HomeController@contact');
+	route::post('comment/{post_id}',['uses'=>'CommentController@store','as'=>'comment.store']);
 });
 
 route::group(['namespace'=>'Admin','middleware'=>['web']],function(){
 	route::resource('post','PostController');
+	route::resource('category','CategoryController',['except'=>'create']);
+	route::resource('tag','TagController',['except'=>'create']);
 });

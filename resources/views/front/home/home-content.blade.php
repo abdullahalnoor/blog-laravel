@@ -27,7 +27,7 @@
             </div>
           @endforeach
 
-         
+
             <div class="card-footer text-muted">
               Posted on January 1, 2017 by
               <a href="#">Start Bootstrap</a>
@@ -96,6 +96,6 @@
         </div>
 
       </div>
-      
+
       <!-- /.row -->
 @endsection

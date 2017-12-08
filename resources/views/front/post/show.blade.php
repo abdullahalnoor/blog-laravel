@@ -20,6 +20,11 @@
         <div class="col-md-8">
             <h2>{{ $post->title }}</h2>
             <p>{{ $post->body }}</p>
+            <div>
+              @foreach($post->tags as $tag)
+              <span class="label label-default">{{ $tag->name }},</span>
+              @endforeach
+            </div>
         </div>
         <div class="col-md-4">
           <div class="row">
@@ -27,12 +32,22 @@
               <a href="{{ url($post->slug) }} ">{{url($post->slug)}}</a>
             </div>
             <div class="col-md-12">
-              <dl>
-                <dt>Created</dt>
-                <dd>{{ $post->created_at->diffForHumans() }}</dd>
-                <dt>Updated</dt>
-                <dd>{{ $post->updated_at->diffForHumans() }}</dd>
+              <dl class="dl-horizontal">
+              <label>Category</label>
+                <p> {{ $post->category->name }}</p>
               </dl>
+              <dl class="dl-horizontal">
+                 </label>Created</label>
+                <p>{{ $post->created_at->diffForHumans() }}</p>
+              </dl>
+              <dl class="dl-horizontal">
+                </label>Updated</label>
+                <p>{{ $post->updated_at->diffForHumans() }}</p>
+              </dl>
+
+                
+              
+            
              
             </div>
             <div class="col-md-4">
